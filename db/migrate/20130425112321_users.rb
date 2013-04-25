@@ -6,6 +6,8 @@ class Users < ActiveRecord::Migration
       t.string :email, :null => false
       t.string :password_hash, :null => false
       t.string :token
+      t.string :username, :null => false
+      t.timestamps
     end
   end
 end

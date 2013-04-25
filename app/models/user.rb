@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates :last_name, :presence => true
   validates :email, :presence => true, :uniqueness => true
   validates :password_hash, :presence => true
+  validates :username, :presence => true
 
 
   def password
@@ -19,15 +20,5 @@ class User < ActiveRecord::Base
     @password = Password.create(new_password)
     self.password_hash = @password
   end
-
-  # This is dangerous...
-  # uses save! instead normal -> could throw an execption and break everything
-  # super create - returns a different data type, create normally returns the 
-  # object
-  # def create
-  #   @user = User.new(params[:user]) #be sure to group user params in erb
-  #   @user.password = params[:password]  # tag password as password in erb
-  #   @user.save!
-  # end
 
 end
