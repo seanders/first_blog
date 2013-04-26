@@ -1,1 +1,49 @@
-<h2>Blogs 'n Stuff</h2>
+<div class='container'>
+
+
+<div class="login_box">
+    <form action='/login' method='post'>
+      <% if @valid_user == false %>
+      <h2>Not a valid user name or password!</h2>
+      <% end %>
+      <input type="text" name="username" value="username">
+      <input type="password" name="password" value="password">
+      <input type="submit" value="Login!">
+    </form>
+    <form action='/logout' method='post'>
+      <input type="submit" value="Logout!">
+    </form>
+    <a href='/signup'>Not a member? Click here to join!</a>
+    <br>
+    <a href='/submit_post'>Want to submit a post? Click here</a>
+  </div>
+
+  <div class='tag_section'>
+    <h5>Tags</h5>
+    <% Tag.all.each do |tag|%>
+    <ul>
+      <a href=""> <li><%= tag.name %> </li></a>
+    </ul>
+    <%end%>
+  </div>
+  <div class="content">
+    <h4 class="page_title">Recent Posts</h4>
+    <table border="1">
+      <tr> <th>Title</th><th>Created On</th></tr>
+      <% Post.all.each do |post|%>
+      <tr><td><a href='/posts/<%= post.id %>'><%= post.title %></a></td> <td><%= post.created_at %></td></tr>
+      <% end %>
+    </table>
+  </div>
+  <div class='user_section'>
+    <h5>Users</h5>
+    <% User.all.each do |user|%>
+    <ul>
+      <a href="/users/<%= user.id %>/posts"> <li><%= user.username %> </li></a>
+    </ul>
+    <%end%>
+  </div>
+
+
+
+</div>

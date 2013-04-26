@@ -1,0 +1,10 @@
+  <h1>Blogs 'n Stuff</h1>
+
+  <h4>Welcome back, <%= @user.username %></h4>
+
+  <h3>Below is your post history:<h3>
+  <% @user.posts.each do |post|%>
+  <ul>
+    <a href='/posts/<%= post.id %>'><li><%= post.title %><%= post.created_at %></li></a>
+  </ul>
+  <% end %>

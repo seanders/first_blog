@@ -1,1 +1,2 @@
-User.new(first_name: "Sean", last_name: "Miller", email: "sean@miller.com", password: "123")
+User.create(first_name: "Sean", last_name: "Miller", email: "sean@miller.com", username: "slicebo", password: "123")
+Post.create(title: "The Importance of Being Idle", content: "It's quite important.", user_id: 1)
