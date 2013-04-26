@@ -66,3 +66,9 @@ post '/submit_post' do
   @user = User.find(session[:user_id])
   erb :user_home
 end
+
+get '/tags/:tag_name' do
+  @tag_id = Tag.where("name = ?", params[:tag_name]).first.id
+  @posts = PostsTags.where("tag_id = ?", @tag_id)
+  p @posts
+end

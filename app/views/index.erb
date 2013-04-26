@@ -22,7 +22,7 @@
     <h5>Tags</h5>
     <% Tag.all.each do |tag|%>
     <ul>
-      <a href=""> <li><%= tag.name %> </li></a>
+      <a href="/tags/<%= tag.name %>"> <li><%= tag.name %> </li></a>
     </ul>
     <%end%>
   </div>
